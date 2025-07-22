@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+    <org.eventb.core.carrierSet name="'" org.eventb.core.identifier="STATE"/>
+    <org.eventb.core.carrierSet name="(" org.eventb.core.identifier="RULE"/>
+    <org.eventb.core.carrierSet name=")" org.eventb.core.identifier="ACTION"/>
+    <org.eventb.core.constant name="*" org.eventb.core.identifier="&#119964;"/>
+    <org.eventb.core.constant name="+" org.eventb.core.identifier="GOAL_STATES"/>
+    <org.eventb.core.constant name="," org.eventb.core.identifier="MAX_STEPS"/>
+    <org.eventb.core.constant name="-" org.eventb.core.identifier="NO_ACTION"/>
+    <org.eventb.core.constant name="." org.eventb.core.identifier="guard"/>
+    <org.eventb.core.constant name="/" org.eventb.core.identifier="action"/>
+    <org.eventb.core.constant name="0" org.eventb.core.identifier="apply"/>
+    <org.eventb.core.axiom name="1" org.eventb.core.label="axm1" org.eventb.core.predicate="&#119964; ⊆ STATE"/>
+    <org.eventb.core.axiom name="2" org.eventb.core.label="axm2" org.eventb.core.predicate="GOAL_STATES ⊆ STATE"/>
+    <org.eventb.core.axiom name="3" org.eventb.core.label="axm3" org.eventb.core.predicate="MAX_STEPS ∈ ℕ ∧ MAX_STEPS ≥ 1"/>
+    <org.eventb.core.axiom name="4" org.eventb.core.label="axm4" org.eventb.core.predicate="NO_ACTION ∉ ACTION"/>
+    <org.eventb.core.axiom name="5" org.eventb.core.label="axm5" org.eventb.core.predicate="guard ∈ RULE × STATE → BOOL"/>
+    <org.eventb.core.axiom name="6" org.eventb.core.label="axm6" org.eventb.core.predicate="action ∈ RULE × STATE → ACTION"/>
+    <org.eventb.core.axiom name="7" org.eventb.core.label="axm7" org.eventb.core.predicate="apply ∈ ACTION × STATE → STATE"/>
+</org.eventb.core.contextFile>

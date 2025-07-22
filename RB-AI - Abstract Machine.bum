@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="currentState :∈ &#119964;" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="activeRules ≔ ∅" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="nextAction ≔ NO_ACTION" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="stepCount ≔ 0" org.eventb.core.label="act4"/>
+    </org.eventb.core.event>
+    <org.eventb.core.seesContext name="(" org.eventb.core.target="RB-AI -Abstract-Context"/>
+    <org.eventb.core.variable name=")" org.eventb.core.identifier="currentState"/>
+    <org.eventb.core.variable name="*" org.eventb.core.identifier="activeRules"/>
+    <org.eventb.core.variable name="+" org.eventb.core.identifier="nextAction"/>
+    <org.eventb.core.variable name="," org.eventb.core.identifier="stepCount"/>
+    <org.eventb.core.invariant name="-" org.eventb.core.label="inv1" org.eventb.core.predicate="currentState ∈ STATE"/>
+    <org.eventb.core.invariant name="." org.eventb.core.label="inv2" org.eventb.core.predicate="activeRules ⊆ RULE"/>
+    <org.eventb.core.invariant name="/" org.eventb.core.label="inv3" org.eventb.core.predicate="nextAction ∈ ACTION ∪ {NO_ACTION}"/>
+    <org.eventb.core.invariant name="0" org.eventb.core.label="inv4" org.eventb.core.predicate="stepCount ∈ ℕ"/>
+    <org.eventb.core.invariant name="1" org.eventb.core.label="inv5" org.eventb.core.predicate="currentState ∈ &#119964;"/>
+    <org.eventb.core.event name="2" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="EvaluateRule">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="r"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="r ∈ RULE"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="guard(r↦ currentState) = TRUE"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="activeRules ≔ activeRules ∪ {r}" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="3" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="SelectAction">
+        <org.eventb.core.parameter name=")" org.eventb.core.identifier="a"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="nextAction ≔ a" org.eventb.core.label="act1"/>
+        <org.eventb.core.parameter name="," org.eventb.core.identifier="r"/>
+        <org.eventb.core.guard name="-" org.eventb.core.label="grd3" org.eventb.core.predicate="r ∈ activeRules"/>
+        <org.eventb.core.guard name="." org.eventb.core.label="grd4" org.eventb.core.predicate="a = action(r ↦ currentState)"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="4" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="ApplyAction">
+        <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="nextAction ≠ NO_ACTION"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="currentState ≔ apply(nextAction↦ currentState)" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="stepCount ≔ stepCount + 1" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="activeRules ≔ ∅" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="nextAction ≔ NO_ACTION" org.eventb.core.label="act4"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>

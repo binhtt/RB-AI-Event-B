@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+        <org.eventb.core.poIdentifier name="ACTION" org.eventb.core.type="ℙ(ACTION)"/>
+        <org.eventb.core.poIdentifier name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+        <org.eventb.core.poIdentifier name="GOAL_STATES" org.eventb.core.type="ℙ(STATE)"/>
+        <org.eventb.core.poIdentifier name="MAX_STEPS" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="&#119964;" org.eventb.core.type="ℙ(STATE)"/>
+        <org.eventb.core.poIdentifier name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+        <org.eventb.core.poIdentifier name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+        <org.eventb.core.poIdentifier name="NO_ACTION" org.eventb.core.type="ACTION"/>
+        <org.eventb.core.poIdentifier name="apply" org.eventb.core.type="ℙ(ACTION×STATE×STATE)"/>
+        <org.eventb.core.poPredicate name="GOAL_STATET" org.eventb.core.predicate="&#119964;⊆STATE" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#1"/>
+        <org.eventb.core.poPredicate name="GOAL_STATEU" org.eventb.core.predicate="GOAL_STATES⊆STATE" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#2"/>
+        <org.eventb.core.poPredicate name="GOAL_STATEV" org.eventb.core.predicate="MAX_STEPS∈ℕ∧MAX_STEPS≥1" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#3"/>
+        <org.eventb.core.poPredicate name="GOAL_STATEW" org.eventb.core.predicate="NO_ACTION∉ACTION" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#4"/>
+        <org.eventb.core.poPredicate name="GOAL_STATEX" org.eventb.core.predicate="guard∈RULE × STATE → BOOL" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#5"/>
+        <org.eventb.core.poPredicate name="GOAL_STATEY" org.eventb.core.predicate="action∈RULE × STATE → ACTION" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#6"/>
+        <org.eventb.core.poPredicate name="GOAL_STATEZ" org.eventb.core.predicate="apply∈ACTION × STATE → STATE" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#7"/>
+        <org.eventb.core.poIdentifier name="isRedundant" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        <org.eventb.core.poIdentifier name="isConflict" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        <org.eventb.core.poIdentifier name="isCycle" org.eventb.core.type="ℙ(STATE×STATE×BOOL)"/>
+        <org.eventb.core.poPredicate name="isRedundanu" org.eventb.core.predicate="isConflict∈RULE × RULE → BOOL" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#*"/>
+        <org.eventb.core.poPredicate name="isRedundanv" org.eventb.core.predicate="∀r1⦂RULE,r2⦂RULE,s⦂STATE·r1∈RULE∧r2∈RULE∧s∈STATE∧guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧action(r1 ↦ s)≠action(r2 ↦ s)⇒isConflict(r1 ↦ r2)=TRUE" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#,"/>
+        <org.eventb.core.poPredicate name="isRedundanw" org.eventb.core.predicate="isRedundant∈RULE × RULE → BOOL" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#-"/>
+        <org.eventb.core.poPredicate name="isRedundanx" org.eventb.core.predicate="∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·r_j∈RULE∧r_i∈RULE∧s∈STATE∧(guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)∧action(r_j ↦ s)=action(r_i ↦ s)⇒isRedundant(r_j ↦ r_i)=TRUE" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#."/>
+        <org.eventb.core.poPredicate name="isRedundany" org.eventb.core.predicate="isCycle∈STATE × STATE → BOOL" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#\/"/>
+        <org.eventb.core.poPredicate name="isRedundanz" org.eventb.core.predicate="∀s1⦂STATE,s2⦂STATE,a⦂ACTION·s1∈STATE∧s2∈STATE∧a∈ACTION∧apply(a ↦ s1)=s2⇒isCycle(s1 ↦ s2)=TRUE" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#0"/>
+        <org.eventb.core.poPredicate name="isRedundan{" org.eventb.core.predicate="∀a⦂ACTION,s⦂STATE·a∈ACTION∧s∈&#119964;⇒apply(a ↦ s)∈&#119964;" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#1"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="livelockDetected" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="conflictPairs" org.eventb.core.type="ℙ(RULE×RULE)"/>
+        <org.eventb.core.poIdentifier name="invariantViolated" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="stateHistory" org.eventb.core.type="ℙ(STATE×ℤ)"/>
+        <org.eventb.core.poIdentifier name="currentState" org.eventb.core.type="STATE"/>
+        <org.eventb.core.poIdentifier name="redundantRules" org.eventb.core.type="ℙ(RULE)"/>
+        <org.eventb.core.poIdentifier name="activeRules" org.eventb.core.type="ℙ(RULE)"/>
+        <org.eventb.core.poIdentifier name="nextAction" org.eventb.core.type="ACTION"/>
+        <org.eventb.core.poIdentifier name="stepCount" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poPredicate name="invariantViolatee" org.eventb.core.predicate="currentState∈STATE" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.invariant#-"/>
+        <org.eventb.core.poPredicate name="invariantViolatef" org.eventb.core.predicate="activeRules⊆RULE" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.invariant#."/>
+        <org.eventb.core.poPredicate name="invariantViolateg" org.eventb.core.predicate="nextAction∈ACTION∪{NO_ACTION}" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.invariant#\/"/>
+        <org.eventb.core.poPredicate name="invariantViolateh" org.eventb.core.predicate="stepCount∈ℕ" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.invariant#0"/>
+        <org.eventb.core.poPredicate name="invariantViolatei" org.eventb.core.predicate="currentState∈&#119964;" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.invariant#1"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="inv2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contexu"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀pair⦂RULE×RULE·pair∈conflictPairs⇒pair∈dom(isConflict)∧isConflict∈RULE × RULE ⇸ BOOL" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#1"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#1"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contexu"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="inv4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contexw"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀r⦂RULE·r∈redundantRules⇒(∀r'⦂RULE·r'∈RULE⇒r ↦ r'∈dom(isRedundant)∧isRedundant∈RULE × RULE ⇸ BOOL)" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#3"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#3"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contexw"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="inv8/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contex{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="livelockDetected=TRUE∧stepCount&gt;MAX_STEPS⇒currentState∈dom(stateHistory)∧stateHistory∈STATE ⇸ ℤ" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contex{"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="DetectConflict/grd2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey''"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="r1 ↦ currentState∈dom(guard)∧guard∈RULE × STATE ⇸ BOOL∧(guard(r1 ↦ currentState)=TRUE⇒r2 ↦ currentState∈dom(guard))" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#C|org.eventb.core.guard#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#C|org.eventb.core.guard#*"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey''"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="DetectConflict/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey'("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="r1 ↦ currentState∈dom(action)∧action∈RULE × STATE ⇸ ACTION∧r2 ↦ currentState∈dom(action)" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#C|org.eventb.core.guard#+"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#C|org.eventb.core.guard#+"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey'("/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="DetectConflict/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey'"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀pair⦂RULE×RULE·pair∈conflictPairs∪{r1 ↦ r2}⇒isConflict(pair)=TRUE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#1"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#C"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#1"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#DetectConflict\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contexw|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTRB-AI-Refine-Contey'" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="r2" org.eventb.core.type="RULE"/>
+        <org.eventb.core.poIdentifier name="conflictPairs'" org.eventb.core.type="ℙ(RULE×RULE)"/>
+        <org.eventb.core.poIdentifier name="r1" org.eventb.core.type="RULE"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPRB-AI-Refine-Contey''" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTIDENTRB-AI-Refine-Contey'" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="r1∈RULE∧r2∈RULE∧r1≠r2" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#C|org.eventb.core.guard#)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPRB-AI-Refine-Contey'(" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey''" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="guard(r1 ↦ currentState)=TRUE∧guard(r2 ↦ currentState)=TRUE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#C|org.eventb.core.guard#*"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPRB-AI-Refine-Contey'" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey'(" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="action(r1 ↦ currentState)≠action(r2 ↦ currentState)" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#C|org.eventb.core.guard#+"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="DetectRedundancy/grd2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey('"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="r_j ↦ currentState∈dom(guard)∧guard∈RULE × STATE ⇸ BOOL∧(guard(r_j ↦ currentState)=TRUE⇒r_i ↦ currentState∈dom(guard))" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#=|org.eventb.core.guard#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#=|org.eventb.core.guard#*"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey('"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="DetectRedundancy/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey(("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="r_j ↦ currentState∈dom(action)∧action∈RULE × STATE ⇸ ACTION∧r_i ↦ currentState∈dom(action)" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#=|org.eventb.core.guard#+"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#=|org.eventb.core.guard#+"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey(("/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="DetectRedundancy/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey()"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀s⦂STATE·s∈STATE⇒r_j ↦ s∈dom(guard)∧guard∈RULE × STATE ⇸ BOOL∧(guard(r_j ↦ s)=TRUE⇒r_i ↦ s∈dom(guard))" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#=|org.eventb.core.guard#,"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#=|org.eventb.core.guard#,"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey()"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="DetectRedundancy/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀r⦂RULE·r∈redundantRules∪{r_j}⇒(∃r'⦂RULE·r'∈RULE∧isRedundant(r ↦ r')=TRUE)" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#3"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#="/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#3"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#DetectRedundancy\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contex{|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTRB-AI-Refine-Contey(" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="r_i" org.eventb.core.type="RULE"/>
+        <org.eventb.core.poIdentifier name="redundantRules'" org.eventb.core.type="ℙ(RULE)"/>
+        <org.eventb.core.poIdentifier name="r_j" org.eventb.core.type="RULE"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPRB-AI-Refine-Contey('" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTIDENTRB-AI-Refine-Contey(" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="r_j∈RULE∧r_i∈RULE∧r_j≠r_i" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#=|org.eventb.core.guard#)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPRB-AI-Refine-Contey((" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey('" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="guard(r_j ↦ currentState)=TRUE∧guard(r_i ↦ currentState)=TRUE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#=|org.eventb.core.guard#*"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPRB-AI-Refine-Contey()" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey((" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="action(r_j ↦ currentState)=action(r_i ↦ currentState)" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#=|org.eventb.core.guard#+"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPRB-AI-Refine-Contey(" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey()" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="∀s⦂STATE·s∈STATE⇒(guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#=|org.eventb.core.guard#,"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="CheckInvariantSatisfied/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey)"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE=TRUE⇒currentState∉&#119964;" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#5"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#D"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#5"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#CheckInvariantSatisfied\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contex{|org.eventb.core.poPredicate#PRD5"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTRB-AI-Refine-Contey)" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="invariantViolated'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPRB-AI-Refine-Contey)" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTIDENTRB-AI-Refine-Contey)" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="currentState∈&#119964;" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#D|org.eventb.core.guard#'"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="CheckInvariantViolated/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey*"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="TRUE=TRUE⇒currentState∉&#119964;" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#5"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#E"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#5"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#CheckInvariantViolated\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contex{|org.eventb.core.poPredicate#PRD5"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTRB-AI-Refine-Contey*" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="invariantViolated'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPRB-AI-Refine-Contey*" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTIDENTRB-AI-Refine-Contey*" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="currentState∉&#119964;" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#E|org.eventb.core.guard#'"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="DetectLivelock/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey+("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="currentState∈dom(stateHistory)∧stateHistory∈STATE ⇸ ℤ" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#F|org.eventb.core.guard#)"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#F|org.eventb.core.guard#)"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey+("/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="DetectLivelock/inv8/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey+"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="TRUE=TRUE⇒stepCount&gt;MAX_STEPS∧stateHistory(currentState)&gt;1∧currentState∉GOAL_STATES" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#F"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#DetectLivelock\/inv8\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD7"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTRB-AI-Refine-Contey+" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="livelockDetected'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPRB-AI-Refine-Contey+(" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTIDENTRB-AI-Refine-Contey+" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="stepCount&gt;MAX_STEPS" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#F|org.eventb.core.guard#'"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="currentState∈dom(stateHistory)" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#F|org.eventb.core.guard#("/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPRB-AI-Refine-Contey+" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey+(" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="stateHistory(currentState)&gt;1" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#F|org.eventb.core.guard#)"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="currentState∉GOAL_STATES" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#F|org.eventb.core.guard#*"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="ClearLivelock/grd1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTIDENTRB-AI-Refine-Contey,"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="stepCount≤MAX_STEPS∨currentState∉dom(stateHistory)∨(currentState∈dom(stateHistory)∧stateHistory∈STATE ⇸ ℤ)" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#G|org.eventb.core.guard#'"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#G|org.eventb.core.guard#'"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTIDENTRB-AI-Refine-Contey,"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="ClearLivelock/inv8/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey,"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE=TRUE⇒stepCount&gt;MAX_STEPS∧stateHistory(currentState)&gt;1∧currentState∉GOAL_STATES" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#G"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#ClearLivelock\/inv8\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD7"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTRB-AI-Refine-Contey," org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="livelockDetected'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPRB-AI-Refine-Contey," org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTIDENTRB-AI-Refine-Contey," org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="stepCount≤MAX_STEPS∨currentState∉dom(stateHistory)∨stateHistory(currentState)≤1∨currentState∈GOAL_STATES" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#G|org.eventb.core.guard#'"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="ApplyAction /grd2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey-("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="currentState∈dom(stateHistory)⇒stateHistory∈STATE ⇸ ℤ" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#H|org.eventb.core.guard#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#H|org.eventb.core.guard#*"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey-("/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="ApplyAction /inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="invariantViolated=TRUE⇒currentState∉&#119964;" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#5"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.event#4"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#H"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#5"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#ApplyAction \/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contex{|org.eventb.core.poPredicate#PRD5"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="ApplyAction /inv8/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="livelockDetected=TRUE⇒stepCount&gt;MAX_STEPS∧(stateHistory{currentState ↦ newCount})(currentState)&gt;1∧currentState∉GOAL_STATES" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.event#4"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#H"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#ApplyAction \/inv8\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD7"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="ApplyAction /inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="stateHistory{currentState ↦ newCount}∈STATE ↔ ℕ" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#8"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.event#4"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#H"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#8"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#ApplyAction \/inv9\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD8"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="ApplyAction /inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="currentState∈dom(stateHistory{currentState ↦ newCount})" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#9"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.event#4"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#H"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#9"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#ApplyAction \/inv10\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD9"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="ApplyAction /act1/SIM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Action simulation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="currentState=apply(nextAction ↦ currentState)" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.event#4|org.eventb.core.action#("/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.event#4"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.event#4|org.eventb.core.action#("/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#H"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#ApplyAction \/act1\/SIM|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="ApplyAction /act2/SIM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Action simulation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="stepCount=stepCount+1" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.event#4|org.eventb.core.action#)"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.event#4"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.event#4|org.eventb.core.action#)"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#H"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#ApplyAction \/act2\/SIM|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="ApplyAction /act3/SIM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Action simulation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="activeRules=(∅ ⦂ ℙ(RULE))" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.event#4|org.eventb.core.action#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.event#4"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.event#4|org.eventb.core.action#*"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#H"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#ApplyAction \/act3\/SIM|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="ApplyAction /act4/SIM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Action simulation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="nextAction=NO_ACTION" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.event#4|org.eventb.core.action#+"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.event#4"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/RB-AI/RB-AI - Abstract Machine.bum|org.eventb.core.machineFile#RB-AI - Abstract Machine|org.eventb.core.event#4|org.eventb.core.action#+"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#H"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#ApplyAction \/act4\/SIM|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTRB-AI-Refine-Contey-" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="newCount" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="nextAction'" org.eventb.core.type="ACTION"/>
+        <org.eventb.core.poIdentifier name="currentState'" org.eventb.core.type="STATE"/>
+        <org.eventb.core.poIdentifier name="stepCount'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="activeRules'" org.eventb.core.type="ℙ(RULE)"/>
+        <org.eventb.core.poIdentifier name="stateHistory'" org.eventb.core.type="ℙ(STATE×ℤ)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPRB-AI-Refine-Contey-(" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTIDENTRB-AI-Refine-Contey-" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="nextAction≠NO_ACTION" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#H|org.eventb.core.guard#("/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPRB-AI-Refine-Contey-" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTHYPRB-AI-Refine-Contey-(" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="(currentState∈dom(stateHistory)⇒newCount=stateHistory(currentState)+1)∧(currentState∉dom(stateHistory)⇒newCount=1)" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#H|org.eventb.core.guard#*"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="SystemRecovery/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey."/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀pair⦂RULE×RULE·pair∈(∅ ⦂ ℙ(RULE×RULE))⇒isConflict(pair)=TRUE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#1"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#I"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#1"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#SystemRecovery\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contexw|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="SystemRecovery/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey."/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀r⦂RULE·r∈(∅ ⦂ ℙ(RULE))⇒(∃r'⦂RULE·r'∈RULE∧isRedundant(r ↦ r')=TRUE)" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#3"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#I"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#3"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#SystemRecovery\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contex{|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="SystemRecovery/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey."/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE=TRUE⇒safeState∉&#119964;" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#5"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#I"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#5"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#SystemRecovery\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contex{|org.eventb.core.poPredicate#PRD5"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="SystemRecovery/inv8/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey."/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE=TRUE⇒0&gt;MAX_STEPS∧{safeState ↦ 1}(safeState)&gt;1∧safeState∉GOAL_STATES" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#I"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#SystemRecovery\/inv8\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD7"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="SystemRecovery/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey."/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{safeState ↦ 1}∈STATE ↔ ℕ" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#8"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#I"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#8"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#SystemRecovery\/inv9\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD8"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="SystemRecovery/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey."/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="safeState∈dom({safeState ↦ 1})" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#9"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#I"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#9"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#SystemRecovery\/inv10\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD9"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="SystemRecovery/currentState/EQL" org.eventb.core.accurate="true" org.eventb.core.poDesc="Equality of common variables" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey."/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="safeState=currentState" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#I|org.eventb.core.action#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#I"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#SystemRecovery\/currentState\/EQL|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="SystemRecovery/stepCount/EQL" org.eventb.core.accurate="true" org.eventb.core.poDesc="Equality of common variables" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTALLHYPRB-AI-Refine-Contey."/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0=stepCount" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#I|org.eventb.core.action#,"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#I"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poSequent#SystemRecovery\/stepCount\/EQL|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTRB-AI-Refine-Contey." org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="conflictPairs'" org.eventb.core.type="ℙ(RULE×RULE)"/>
+        <org.eventb.core.poIdentifier name="livelockDetected'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="redundantRules'" org.eventb.core.type="ℙ(RULE)"/>
+        <org.eventb.core.poIdentifier name="invariantViolated'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="currentState'" org.eventb.core.type="STATE"/>
+        <org.eventb.core.poIdentifier name="stepCount'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="stateHistory'" org.eventb.core.type="ℙ(STATE×ℤ)"/>
+        <org.eventb.core.poIdentifier name="safeState" org.eventb.core.type="STATE"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPRB-AI-Refine-Contey." org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#EVTIDENTRB-AI-Refine-Contey." org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="safeState∈&#119964;" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#I|org.eventb.core.guard#("/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="invariantViolated=TRUE∨livelockDetected=TRUE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.event#I|org.eventb.core.guard#)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPRB-AI-Refine-Contexu" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="conflictPairs⊆RULE × RULE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#0"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPRB-AI-Refine-Contexw" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contexu" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="∀pair⦂RULE×RULE·pair∈conflictPairs⇒isConflict(pair)=TRUE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#1"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="redundantRules⊆RULE" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#2"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPRB-AI-Refine-Contex{" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contexw" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="∀r⦂RULE·r∈redundantRules⇒(∃r'⦂RULE·r'∈RULE∧isRedundant(r ↦ r')=TRUE)" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#3"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="invariantViolated∈BOOL" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#4"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="invariantViolated=TRUE⇒currentState∉&#119964;" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#5"/>
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="livelockDetected∈BOOL" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#6"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine Machine.bpo|org.eventb.core.poFile#RB-AI-Refine Machine|org.eventb.core.poPredicateSet#HYPRB-AI-Refine-Contex{" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="livelockDetected=TRUE⇒stepCount&gt;MAX_STEPS∧stateHistory(currentState)&gt;1∧currentState∉GOAL_STATES" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poPredicate name="PRD8" org.eventb.core.predicate="stateHistory∈STATE ↔ ℕ" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#8"/>
+        <org.eventb.core.poPredicate name="PRD9" org.eventb.core.predicate="currentState∈dom(stateHistory)" org.eventb.core.source="/RB-AI/RB-AI-Refine Machine.bum|org.eventb.core.machineFile#RB-AI-Refine Machine|org.eventb.core.invariant#9"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

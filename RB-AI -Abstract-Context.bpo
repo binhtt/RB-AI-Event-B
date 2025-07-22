@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+        <org.eventb.core.poIdentifier name="ACTION" org.eventb.core.type="ℙ(ACTION)"/>
+        <org.eventb.core.poIdentifier name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+        <org.eventb.core.poIdentifier name="GOAL_STATES" org.eventb.core.type="ℙ(STATE)"/>
+        <org.eventb.core.poIdentifier name="MAX_STEPS" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="&#119964;" org.eventb.core.type="ℙ(STATE)"/>
+        <org.eventb.core.poIdentifier name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+        <org.eventb.core.poIdentifier name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+        <org.eventb.core.poIdentifier name="NO_ACTION" org.eventb.core.type="ACTION"/>
+        <org.eventb.core.poIdentifier name="apply" org.eventb.core.type="ℙ(ACTION×STATE×STATE)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/RB-AI/RB-AI -Abstract-Context.bpo|org.eventb.core.poFile#RB-AI -Abstract-Context|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="&#119964;⊆STATE" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#1"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="GOAL_STATES⊆STATE" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#2"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="MAX_STEPS∈ℕ∧MAX_STEPS≥1" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#3"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="NO_ACTION∉ACTION" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#4"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="guard∈RULE × STATE → BOOL" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#5"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="action∈RULE × STATE → ACTION" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#6"/>
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="apply∈ACTION × STATE → STATE" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#7"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

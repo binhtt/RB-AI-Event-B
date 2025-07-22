@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+    <org.eventb.core.constant name="'" org.eventb.core.identifier="isConflict"/>
+    <org.eventb.core.constant name="(" org.eventb.core.identifier="isRedundant"/>
+    <org.eventb.core.constant name=")" org.eventb.core.identifier="isCycle"/>
+    <org.eventb.core.axiom name="*" org.eventb.core.label="axm1" org.eventb.core.predicate="isConflict ∈ RULE × RULE → BOOL"/>
+    <org.eventb.core.extendsContext name="+" org.eventb.core.target="RB-AI -Abstract-Context"/>
+    <org.eventb.core.axiom name="," org.eventb.core.label="axm2" org.eventb.core.predicate="∀r1,r2,s· r1 ∈ RULE ∧ r2 ∈ RULE ∧ s ∈ STATE ∧ &#13;&#10;          guard(r1↦ s) = TRUE ∧ guard(r2↦ s) = TRUE ∧ action(r1↦ s) ≠ action(r2↦ s)&#13;&#10;          ⇒ isConflict(r1 ↦ r2) = TRUE"/>
+    <org.eventb.core.axiom name="-" org.eventb.core.label="axm3" org.eventb.core.predicate="isRedundant ∈ RULE × RULE → BOOL"/>
+    <org.eventb.core.axiom name="." org.eventb.core.label="axm4" org.eventb.core.predicate="∀r_j,r_i,s· (r_j ∈ RULE ∧ r_i ∈ RULE ∧ s ∈ STATE ∧&#13;&#10;          (guard(r_j↦s) = TRUE ⇒ guard(r_i↦s) = TRUE) ∧ &#13;&#10;          action(r_j↦s) = action(r_i↦s))&#13;&#10;          ⇒ isRedundant(r_j ↦ r_i) = TRUE"/>
+    <org.eventb.core.axiom name="/" org.eventb.core.label="axm5" org.eventb.core.predicate="isCycle ∈ STATE × STATE → BOOL"/>
+    <org.eventb.core.axiom name="0" org.eventb.core.label="axm6" org.eventb.core.predicate="∀s1,s2,a· (s1 ∈ STATE ∧ s2 ∈ STATE ∧ a ∈ ACTION ∧ &#13;&#10;           apply(a↦s1) = s2) ⇒ isCycle(s1 ↦ s2) = TRUE"/>
+    <org.eventb.core.axiom name="1" org.eventb.core.label="axm7" org.eventb.core.predicate="∀a,s·a ∈ ACTION ∧ s ∈ &#119964; ⇒ apply(a↦s) ∈ &#119964;"/>
+</org.eventb.core.contextFile>

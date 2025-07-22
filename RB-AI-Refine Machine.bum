@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.refinesMachine name="(" org.eventb.core.target="RB-AI - Abstract Machine"/>
+    <org.eventb.core.variable name="&gt;" org.eventb.core.identifier="currentState"/>
+    <org.eventb.core.variable name="@" org.eventb.core.identifier="activeRules"/>
+    <org.eventb.core.variable name="A" org.eventb.core.identifier="nextAction"/>
+    <org.eventb.core.variable name="B" org.eventb.core.identifier="stepCount"/>
+    <org.eventb.core.variable name=")" org.eventb.core.identifier="conflictPairs"/>
+    <org.eventb.core.variable name="*" org.eventb.core.identifier="redundantRules"/>
+    <org.eventb.core.variable name="+" org.eventb.core.identifier="invariantViolated"/>
+    <org.eventb.core.variable name="," org.eventb.core.identifier="livelockDetected"/>
+    <org.eventb.core.variable name="-" org.eventb.core.identifier="stateHistory"/>
+    <org.eventb.core.invariant name="0" org.eventb.core.label="inv1" org.eventb.core.predicate="conflictPairs ⊆ RULE × RULE"/>
+    <org.eventb.core.invariant name="1" org.eventb.core.label="inv2" org.eventb.core.predicate="∀pair·(pair ∈ conflictPairs ⇒ isConflict(pair) = TRUE)"/>
+    <org.eventb.core.invariant name="2" org.eventb.core.label="inv3" org.eventb.core.predicate="redundantRules ⊆ RULE"/>
+    <org.eventb.core.invariant name="3" org.eventb.core.label="inv4" org.eventb.core.predicate="∀r·(r ∈ redundantRules ⇒ ∃r'·(r' ∈ RULE ∧ isRedundant(r ↦ r') = TRUE))"/>
+    <org.eventb.core.invariant name="4" org.eventb.core.label="inv5" org.eventb.core.predicate="invariantViolated ∈ BOOL"/>
+    <org.eventb.core.invariant name="5" org.eventb.core.label="inv6" org.eventb.core.predicate="invariantViolated = TRUE ⇒ currentState ∉ &#119964;"/>
+    <org.eventb.core.invariant name="6" org.eventb.core.label="inv7" org.eventb.core.predicate="livelockDetected ∈ BOOL"/>
+    <org.eventb.core.invariant name="7" org.eventb.core.label="inv8" org.eventb.core.predicate="livelockDetected = TRUE ⇒ &#13;&#10;         stepCount &gt; MAX_STEPS ∧ &#13;&#10;         stateHistory(currentState) &gt; 1 ∧ &#13;&#10;         currentState ∉ GOAL_STATES"/>
+    <org.eventb.core.invariant name="8" org.eventb.core.label="inv9" org.eventb.core.predicate="stateHistory ∈ STATE ↔ ℕ"/>
+    <org.eventb.core.invariant name="9" org.eventb.core.label="inv10" org.eventb.core.predicate="currentState ∈ dom(stateHistory)"/>
+    <org.eventb.core.seesContext name=";" org.eventb.core.target="RB-AI-Refine-Context"/>
+    <org.eventb.core.event name="C" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="DetectConflict">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="r1"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="r2"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="r1 ∈ RULE∧r2 ∈ RULE∧r1 ≠ r2"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="guard(r1↦currentState) = TRUE∧&#13;&#10;    guard(r2↦currentState) = TRUE"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd3" org.eventb.core.predicate="action(r1↦currentState) ≠ action(r2↦currentState)"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="conflictPairs ≔ conflictPairs ∪ {r1 ↦ r2}" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="=" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="DetectRedundancy">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="r_j"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="r_i"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="r_j ∈ RULE∧r_i ∈ RULE∧r_j ≠ r_i"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="guard(r_j↦currentState) = TRUE∧&#13;&#10;    guard(r_i↦currentState) = TRUE"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd3" org.eventb.core.predicate="action(r_j↦currentState) = action(r_i↦currentState)"/>
+        <org.eventb.core.guard name="," org.eventb.core.label="grd4" org.eventb.core.predicate="∀s·s ∈ STATE ⇒ (guard(r_j↦s) = TRUE ⇒ guard(r_i↦s) = TRUE)"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="redundantRules ≔ redundantRules ∪ {r_j}" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="D" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="CheckInvariantSatisfied">
+        <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="currentState ∈ &#119964;"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="invariantViolated ≔ FALSE" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="E" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="CheckInvariantViolated">
+        <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="currentState ∉ &#119964;"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="invariantViolated ≔ TRUE" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="F" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="DetectLivelock">
+        <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="stepCount &gt; MAX_STEPS"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="currentState ∈ dom(stateHistory)"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd3" org.eventb.core.predicate="stateHistory(currentState) &gt; 1"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd4" org.eventb.core.predicate="currentState ∉ GOAL_STATES"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="livelockDetected ≔ TRUE" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="G" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="ClearLivelock">
+        <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="stepCount ≤ MAX_STEPS ∨ currentState ∉ dom(stateHistory) ∨&#13;&#10; stateHistory(currentState) ≤ 1 ∨ currentState ∈ GOAL_STATES"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="livelockDetected ≔ FALSE" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="H" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="ApplyAction ">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="ApplyAction"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="nextAction ≠ NO_ACTION"/>
+        <org.eventb.core.parameter name=")" org.eventb.core.identifier="newCount"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="(currentState ∈ dom(stateHistory) ⇒ newCount = stateHistory(currentState) + 1)&#13;&#10;   ∧ (currentState ∉ dom(stateHistory) ⇒ newCount = 1)"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="stateHistory ≔ stateHistory  {currentState ↦ newCount}" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="I" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="SystemRecovery">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="safeState"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="safeState ∈ &#119964;"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="invariantViolated = TRUE ∨ livelockDetected = TRUE"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="currentState ≔ safeState" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="stateHistory ≔ {safeState ↦ 1}" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="stepCount ≔ 0" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="conflictPairs ≔ ∅" org.eventb.core.label="act4"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="redundantRules ≔ ∅" org.eventb.core.label="act5"/>
+        <org.eventb.core.action name="/" org.eventb.core.assignment="invariantViolated ≔ FALSE" org.eventb.core.label="act6"/>
+        <org.eventb.core.action name="0" org.eventb.core.assignment="livelockDetected ≔ FALSE" org.eventb.core.label="act7"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>

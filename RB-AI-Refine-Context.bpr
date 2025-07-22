@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+    <org.eventb.core.prProof name="axm2/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="ACTION,RULE,STATE">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p7"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p8"/>
+                        <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p12">
+                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p9" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11"/>
+                                <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊥ hyp" org.eventb.core.prHyps="p11"/>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="NO_ACTION" org.eventb.core.type="ACTION"/>
+        <org.eventb.core.prIdent name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+        <org.eventb.core.prIdent name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+        <org.eventb.core.prIdent name="isConflict" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="⊥"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="MAX_STEPS∈ℕ">
+            <org.eventb.core.prIdent name="MAX_STEPS" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬NO_ACTION∈ACTION"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="(∀r1⦂RULE,r2⦂RULE,s⦂STATE·r1∈RULE∧r2∈RULE∧s∈STATE⇒r1 ↦ s∈dom(guard)∧guard∈RULE × STATE ⇸ BOOL∧(guard(r1 ↦ s)=TRUE⇒r2 ↦ s∈dom(guard)∧(guard(r2 ↦ s)=TRUE⇒r1 ↦ s∈dom(action)∧action∈RULE × STATE ⇸ ACTION∧r2 ↦ s∈dom(action))))∧(∀r1⦂RULE,r2⦂RULE,s⦂STATE·r1∈RULE∧r2∈RULE∧s∈STATE∧guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧¬action(r1 ↦ s)=action(r2 ↦ s)⇒r1 ↦ r2∈dom(isConflict)∧isConflict∈RULE × RULE ⇸ BOOL)"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="MAX_STEPS∈ℕ∧MAX_STEPS≥1">
+            <org.eventb.core.prIdent name="MAX_STEPS" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="(∀r1⦂RULE,r2⦂RULE,s⦂STATE·⊤∧⊤∧⊤⇒r1 ↦ s∈dom(guard)∧guard∈RULE × STATE ⇸ BOOL∧(guard(r1 ↦ s)=TRUE⇒r2 ↦ s∈dom(guard)∧(guard(r2 ↦ s)=TRUE⇒r1 ↦ s∈dom(action)∧action∈RULE × STATE ⇸ ACTION∧r2 ↦ s∈dom(action))))∧(∀r1⦂RULE,r2⦂RULE,s⦂STATE·⊤∧⊤∧⊤∧guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧¬action(r1 ↦ s)=action(r2 ↦ s)⇒r1 ↦ r2∈dom(isConflict)∧isConflict∈RULE × RULE ⇸ BOOL)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="MAX_STEPS≥1">
+            <org.eventb.core.prIdent name="MAX_STEPS" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀r1⦂RULE,r2⦂RULE,s⦂STATE·(r1∈RULE∧r2∈RULE∧s∈STATE⇒r1 ↦ s∈dom(guard)∧guard∈RULE × STATE ⇸ BOOL∧(guard(r1 ↦ s)=TRUE⇒r2 ↦ s∈dom(guard)∧(guard(r2 ↦ s)=TRUE⇒r1 ↦ s∈dom(action)∧action∈RULE × STATE ⇸ ACTION∧r2 ↦ s∈dom(action))))∧(r1∈RULE∧r2∈RULE∧s∈STATE∧guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧action(r1 ↦ s)≠action(r2 ↦ s)⇒r1 ↦ r2∈dom(isConflict)∧isConflict∈RULE × RULE ⇸ BOOL)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="&#119964;⊆STATE">
+            <org.eventb.core.prIdent name="&#119964;" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="GOAL_STATES⊆STATE">
+            <org.eventb.core.prIdent name="GOAL_STATES" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="(∀r1⦂RULE,s⦂STATE·r1 ↦ s∈dom(guard))∧guard∈RULE × STATE ⇸ BOOL∧(∀r1⦂RULE,r2⦂RULE,s⦂STATE·guard(r1 ↦ s)=TRUE⇒r2 ↦ s∈dom(guard)∧(guard(r2 ↦ s)=TRUE⇒r1 ↦ s∈dom(action)∧action∈RULE × STATE ⇸ ACTION∧r2 ↦ s∈dom(action)))∧(∀r1⦂RULE,r2⦂RULE,s⦂STATE·guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧¬action(r1 ↦ s)=action(r2 ↦ s)⇒r1 ↦ r2∈dom(isConflict)∧isConflict∈RULE × RULE ⇸ BOOL)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="NO_ACTION∉ACTION"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬⊤"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.falseHyp"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="axm4/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="ACTION,RULE,STATE">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p8">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p13">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p9"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p10"/>
+                        <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11"/>
+                        <org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12"/>
+                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p13" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p16">
+                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p11" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p14"/>
+                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p12" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p15"/>
+                                <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊥ hyp" org.eventb.core.prHyps="p14"/>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="NO_ACTION" org.eventb.core.type="ACTION"/>
+        <org.eventb.core.prIdent name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+        <org.eventb.core.prIdent name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+        <org.eventb.core.prIdent name="isRedundant" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·(r_j∈RULE∧r_i∈RULE∧s∈STATE⇒r_j ↦ s∈dom(guard)∧guard∈RULE × STATE ⇸ BOOL∧(guard(r_j ↦ s)=TRUE⇒r_i ↦ s∈dom(guard))∧((guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)⇒r_j ↦ s∈dom(action)∧action∈RULE × STATE ⇸ ACTION∧r_i ↦ s∈dom(action)))∧(r_j∈RULE∧r_i∈RULE∧s∈STATE∧(guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)∧action(r_j ↦ s)=action(r_i ↦ s)⇒r_j ↦ r_i∈dom(isRedundant)∧isRedundant∈RULE × RULE ⇸ BOOL)"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀r1⦂RULE,r2⦂RULE,s⦂STATE·guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧¬action(r1 ↦ s)=action(r2 ↦ s)⇒isConflict(r1 ↦ r2)=TRUE">
+            <org.eventb.core.prIdent name="isConflict" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="(∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·r_j∈RULE∧r_i∈RULE∧s∈STATE⇒r_j ↦ s∈dom(guard)∧guard∈RULE × STATE ⇸ BOOL∧(guard(r_j ↦ s)=TRUE⇒r_i ↦ s∈dom(guard))∧((guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)⇒r_j ↦ s∈dom(action)∧action∈RULE × STATE ⇸ ACTION∧r_i ↦ s∈dom(action)))∧(∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·r_j∈RULE∧r_i∈RULE∧s∈STATE∧(guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)∧action(r_j ↦ s)=action(r_i ↦ s)⇒r_j ↦ r_i∈dom(isRedundant)∧isRedundant∈RULE × RULE ⇸ BOOL)"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="⊥"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="MAX_STEPS∈ℕ">
+            <org.eventb.core.prIdent name="MAX_STEPS" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬NO_ACTION∈ACTION"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="(∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·⊤∧⊤∧⊤⇒r_j ↦ s∈dom(guard)∧guard∈RULE × STATE ⇸ BOOL∧(guard(r_j ↦ s)=TRUE⇒r_i ↦ s∈dom(guard))∧((guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)⇒r_j ↦ s∈dom(action)∧action∈RULE × STATE ⇸ ACTION∧r_i ↦ s∈dom(action)))∧(∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·⊤∧⊤∧⊤∧(guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)∧action(r_j ↦ s)=action(r_i ↦ s)⇒r_j ↦ r_i∈dom(isRedundant)∧isRedundant∈RULE × RULE ⇸ BOOL)"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="MAX_STEPS∈ℕ∧MAX_STEPS≥1">
+            <org.eventb.core.prIdent name="MAX_STEPS" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="(∀r_j⦂RULE,s⦂STATE·r_j ↦ s∈dom(guard))∧guard∈RULE × STATE ⇸ BOOL∧(∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·guard(r_j ↦ s)=TRUE⇒r_i ↦ s∈dom(guard))∧(∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·(guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)⇒r_j ↦ s∈dom(action)∧action∈RULE × STATE ⇸ ACTION∧r_i ↦ s∈dom(action))∧(∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·(guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)∧action(r_j ↦ s)=action(r_i ↦ s)⇒r_j ↦ r_i∈dom(isRedundant)∧isRedundant∈RULE × RULE ⇸ BOOL)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="MAX_STEPS≥1">
+            <org.eventb.core.prIdent name="MAX_STEPS" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="&#119964;⊆STATE">
+            <org.eventb.core.prIdent name="&#119964;" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="GOAL_STATES⊆STATE">
+            <org.eventb.core.prIdent name="GOAL_STATES" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="∀r1⦂RULE,r2⦂RULE,s⦂STATE·r1∈RULE∧r2∈RULE∧s∈STATE∧guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧action(r1 ↦ s)≠action(r2 ↦ s)⇒isConflict(r1 ↦ r2)=TRUE">
+            <org.eventb.core.prIdent name="isConflict" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="∀r1⦂RULE,r2⦂RULE,s⦂STATE·r1∈RULE∧r2∈RULE∧s∈STATE∧guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧¬action(r1 ↦ s)=action(r2 ↦ s)⇒isConflict(r1 ↦ r2)=TRUE">
+            <org.eventb.core.prIdent name="isConflict" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="∀r1⦂RULE,r2⦂RULE,s⦂STATE·⊤∧⊤∧⊤∧guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧¬action(r1 ↦ s)=action(r2 ↦ s)⇒isConflict(r1 ↦ r2)=TRUE">
+            <org.eventb.core.prIdent name="isConflict" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="NO_ACTION∉ACTION"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬⊤"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.falseHyp"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="axm6/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="ACTION,STATE">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p8">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p15">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p9"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p10"/>
+                        <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p11" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12"/>
+                        <org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p13"/>
+                        <org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p14"/>
+                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p19">
+                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p12" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p16"/>
+                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p17"/>
+                                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p18"/>
+                                <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊥ hyp" org.eventb.core.prHyps="p17"/>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="NO_ACTION" org.eventb.core.type="ACTION"/>
+        <org.eventb.core.prIdent name="apply" org.eventb.core.type="ℙ(ACTION×STATE×STATE)"/>
+        <org.eventb.core.prIdent name="isCycle" org.eventb.core.type="ℙ(STATE×STATE×BOOL)"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="∀r1⦂RULE,r2⦂RULE,s⦂STATE·guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧¬action(r1 ↦ s)=action(r2 ↦ s)⇒isConflict(r1 ↦ r2)=TRUE">
+            <org.eventb.core.prIdent name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+            <org.eventb.core.prIdent name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+            <org.eventb.core.prIdent name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+            <org.eventb.core.prIdent name="isConflict" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="⊥"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="MAX_STEPS∈ℕ">
+            <org.eventb.core.prIdent name="MAX_STEPS" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬NO_ACTION∈ACTION"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·(guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)∧action(r_j ↦ s)=action(r_i ↦ s)⇒isRedundant(r_j ↦ r_i)=TRUE">
+            <org.eventb.core.prIdent name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+            <org.eventb.core.prIdent name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+            <org.eventb.core.prIdent name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+            <org.eventb.core.prIdent name="isRedundant" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="MAX_STEPS∈ℕ∧MAX_STEPS≥1">
+            <org.eventb.core.prIdent name="MAX_STEPS" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀s1⦂STATE,s2⦂STATE,a⦂ACTION·(s1∈STATE∧s2∈STATE∧a∈ACTION⇒a ↦ s1∈dom(apply)∧apply∈ACTION × STATE ⇸ STATE)∧(s1∈STATE∧s2∈STATE∧a∈ACTION∧apply(a ↦ s1)=s2⇒s1 ↦ s2∈dom(isCycle)∧isCycle∈STATE × STATE ⇸ BOOL)"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·r_j∈RULE∧r_i∈RULE∧s∈STATE∧(guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)∧action(r_j ↦ s)=action(r_i ↦ s)⇒isRedundant(r_j ↦ r_i)=TRUE">
+            <org.eventb.core.prIdent name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+            <org.eventb.core.prIdent name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+            <org.eventb.core.prIdent name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+            <org.eventb.core.prIdent name="isRedundant" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·⊤∧⊤∧⊤∧(guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)∧action(r_j ↦ s)=action(r_i ↦ s)⇒isRedundant(r_j ↦ r_i)=TRUE">
+            <org.eventb.core.prIdent name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+            <org.eventb.core.prIdent name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+            <org.eventb.core.prIdent name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+            <org.eventb.core.prIdent name="isRedundant" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="(∀s1⦂STATE,a⦂ACTION·a ↦ s1∈dom(apply))∧apply∈ACTION × STATE ⇸ STATE∧(∀s1⦂STATE,s2⦂STATE,a⦂ACTION·apply(a ↦ s1)=s2⇒s1 ↦ s2∈dom(isCycle)∧isCycle∈STATE × STATE ⇸ BOOL)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="MAX_STEPS≥1">
+            <org.eventb.core.prIdent name="MAX_STEPS" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="&#119964;⊆STATE">
+            <org.eventb.core.prIdent name="&#119964;" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="GOAL_STATES⊆STATE">
+            <org.eventb.core.prIdent name="GOAL_STATES" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="∀r1⦂RULE,r2⦂RULE,s⦂STATE·r1∈RULE∧r2∈RULE∧s∈STATE∧guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧action(r1 ↦ s)≠action(r2 ↦ s)⇒isConflict(r1 ↦ r2)=TRUE">
+            <org.eventb.core.prIdent name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+            <org.eventb.core.prIdent name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+            <org.eventb.core.prIdent name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+            <org.eventb.core.prIdent name="isConflict" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="∀r1⦂RULE,r2⦂RULE,s⦂STATE·r1∈RULE∧r2∈RULE∧s∈STATE∧guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧¬action(r1 ↦ s)=action(r2 ↦ s)⇒isConflict(r1 ↦ r2)=TRUE">
+            <org.eventb.core.prIdent name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+            <org.eventb.core.prIdent name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+            <org.eventb.core.prIdent name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+            <org.eventb.core.prIdent name="isConflict" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="(∀s1⦂STATE,s2⦂STATE,a⦂ACTION·s1∈STATE∧s2∈STATE∧a∈ACTION⇒a ↦ s1∈dom(apply)∧apply∈ACTION × STATE ⇸ STATE)∧(∀s1⦂STATE,s2⦂STATE,a⦂ACTION·s1∈STATE∧s2∈STATE∧a∈ACTION∧apply(a ↦ s1)=s2⇒s1 ↦ s2∈dom(isCycle)∧isCycle∈STATE × STATE ⇸ BOOL)"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="∀r1⦂RULE,r2⦂RULE,s⦂STATE·⊤∧⊤∧⊤∧guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧¬action(r1 ↦ s)=action(r2 ↦ s)⇒isConflict(r1 ↦ r2)=TRUE">
+            <org.eventb.core.prIdent name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+            <org.eventb.core.prIdent name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+            <org.eventb.core.prIdent name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+            <org.eventb.core.prIdent name="isConflict" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="(∀s1⦂STATE,a⦂ACTION·⊤∧⊤∧⊤⇒a ↦ s1∈dom(apply)∧apply∈ACTION × STATE ⇸ STATE)∧(∀s1⦂STATE,s2⦂STATE,a⦂ACTION·⊤∧⊤∧⊤∧apply(a ↦ s1)=s2⇒s1 ↦ s2∈dom(isCycle)∧isCycle∈STATE × STATE ⇸ BOOL)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="NO_ACTION∉ACTION"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬⊤"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.falseHyp"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="axm7/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="ACTION,STATE">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p16">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p8"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p9"/>
+                        <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11"/>
+                        <org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p12" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p13"/>
+                        <org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p14"/>
+                        <org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p15"/>
+                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p16" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p21">
+                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p11" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p17"/>
+                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p18"/>
+                                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p19"/>
+                                <org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+                                <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊥ hyp" org.eventb.core.prHyps="p19"/>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="NO_ACTION" org.eventb.core.type="ACTION"/>
+        <org.eventb.core.prIdent name="apply" org.eventb.core.type="ℙ(ACTION×STATE×STATE)"/>
+        <org.eventb.core.prIdent name="&#119964;" org.eventb.core.type="ℙ(STATE)"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="∀a⦂ACTION,s⦂STATE·⊤∧s∈&#119964;⇒a ↦ s∈dom(apply)∧apply∈ACTION × STATE ⇸ STATE"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="∀r1⦂RULE,r2⦂RULE,s⦂STATE·guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧¬action(r1 ↦ s)=action(r2 ↦ s)⇒isConflict(r1 ↦ r2)=TRUE">
+            <org.eventb.core.prIdent name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+            <org.eventb.core.prIdent name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+            <org.eventb.core.prIdent name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+            <org.eventb.core.prIdent name="isConflict" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="∀s1⦂STATE,s2⦂STATE,a⦂ACTION·apply(a ↦ s1)=s2⇒isCycle(s1 ↦ s2)=TRUE">
+            <org.eventb.core.prIdent name="isCycle" org.eventb.core.type="ℙ(STATE×STATE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="⊥"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="MAX_STEPS∈ℕ">
+            <org.eventb.core.prIdent name="MAX_STEPS" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬NO_ACTION∈ACTION"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·(guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)∧action(r_j ↦ s)=action(r_i ↦ s)⇒isRedundant(r_j ↦ r_i)=TRUE">
+            <org.eventb.core.prIdent name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+            <org.eventb.core.prIdent name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+            <org.eventb.core.prIdent name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+            <org.eventb.core.prIdent name="isRedundant" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="MAX_STEPS∈ℕ∧MAX_STEPS≥1">
+            <org.eventb.core.prIdent name="MAX_STEPS" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="∀s1⦂STATE,s2⦂STATE,a⦂ACTION·s1∈STATE∧s2∈STATE∧a∈ACTION∧apply(a ↦ s1)=s2⇒isCycle(s1 ↦ s2)=TRUE">
+            <org.eventb.core.prIdent name="isCycle" org.eventb.core.type="ℙ(STATE×STATE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·r_j∈RULE∧r_i∈RULE∧s∈STATE∧(guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)∧action(r_j ↦ s)=action(r_i ↦ s)⇒isRedundant(r_j ↦ r_i)=TRUE">
+            <org.eventb.core.prIdent name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+            <org.eventb.core.prIdent name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+            <org.eventb.core.prIdent name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+            <org.eventb.core.prIdent name="isRedundant" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀a⦂ACTION,s⦂STATE·a∈ACTION∧s∈&#119964;⇒a ↦ s∈dom(apply)∧apply∈ACTION × STATE ⇸ STATE"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·⊤∧⊤∧⊤∧(guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)∧action(r_j ↦ s)=action(r_i ↦ s)⇒isRedundant(r_j ↦ r_i)=TRUE">
+            <org.eventb.core.prIdent name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+            <org.eventb.core.prIdent name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+            <org.eventb.core.prIdent name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+            <org.eventb.core.prIdent name="isRedundant" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="∀s1⦂STATE,s2⦂STATE,a⦂ACTION·⊤∧⊤∧⊤∧apply(a ↦ s1)=s2⇒isCycle(s1 ↦ s2)=TRUE">
+            <org.eventb.core.prIdent name="isCycle" org.eventb.core.type="ℙ(STATE×STATE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="MAX_STEPS≥1">
+            <org.eventb.core.prIdent name="MAX_STEPS" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="&#119964;⊆STATE"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="GOAL_STATES⊆STATE">
+            <org.eventb.core.prIdent name="GOAL_STATES" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="∀r1⦂RULE,r2⦂RULE,s⦂STATE·r1∈RULE∧r2∈RULE∧s∈STATE∧guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧action(r1 ↦ s)≠action(r2 ↦ s)⇒isConflict(r1 ↦ r2)=TRUE">
+            <org.eventb.core.prIdent name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+            <org.eventb.core.prIdent name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+            <org.eventb.core.prIdent name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+            <org.eventb.core.prIdent name="isConflict" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="∀r1⦂RULE,r2⦂RULE,s⦂STATE·r1∈RULE∧r2∈RULE∧s∈STATE∧guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧¬action(r1 ↦ s)=action(r2 ↦ s)⇒isConflict(r1 ↦ r2)=TRUE">
+            <org.eventb.core.prIdent name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+            <org.eventb.core.prIdent name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+            <org.eventb.core.prIdent name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+            <org.eventb.core.prIdent name="isConflict" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="∀a⦂ACTION,s⦂STATE·s∈&#119964;⇒a ↦ s∈dom(apply)∧apply∈ACTION × STATE ⇸ STATE"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀r1⦂RULE,r2⦂RULE,s⦂STATE·⊤∧⊤∧⊤∧guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧¬action(r1 ↦ s)=action(r2 ↦ s)⇒isConflict(r1 ↦ r2)=TRUE">
+            <org.eventb.core.prIdent name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+            <org.eventb.core.prIdent name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+            <org.eventb.core.prIdent name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+            <org.eventb.core.prIdent name="isConflict" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="NO_ACTION∉ACTION"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="¬⊤"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.falseHyp"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+</org.eventb.core.prFile>

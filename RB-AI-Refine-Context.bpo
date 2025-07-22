@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+        <org.eventb.core.poIdentifier name="ACTION" org.eventb.core.type="ℙ(ACTION)"/>
+        <org.eventb.core.poIdentifier name="RULE" org.eventb.core.type="ℙ(RULE)"/>
+        <org.eventb.core.poIdentifier name="GOAL_STATES" org.eventb.core.type="ℙ(STATE)"/>
+        <org.eventb.core.poIdentifier name="MAX_STEPS" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="&#119964;" org.eventb.core.type="ℙ(STATE)"/>
+        <org.eventb.core.poIdentifier name="guard" org.eventb.core.type="ℙ(RULE×STATE×BOOL)"/>
+        <org.eventb.core.poIdentifier name="action" org.eventb.core.type="ℙ(RULE×STATE×ACTION)"/>
+        <org.eventb.core.poIdentifier name="NO_ACTION" org.eventb.core.type="ACTION"/>
+        <org.eventb.core.poIdentifier name="apply" org.eventb.core.type="ℙ(ACTION×STATE×STATE)"/>
+        <org.eventb.core.poPredicate name="GOAL_STATET" org.eventb.core.predicate="&#119964;⊆STATE" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#1"/>
+        <org.eventb.core.poPredicate name="GOAL_STATEU" org.eventb.core.predicate="GOAL_STATES⊆STATE" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#2"/>
+        <org.eventb.core.poPredicate name="GOAL_STATEV" org.eventb.core.predicate="MAX_STEPS∈ℕ∧MAX_STEPS≥1" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#3"/>
+        <org.eventb.core.poPredicate name="GOAL_STATEW" org.eventb.core.predicate="NO_ACTION∉ACTION" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#4"/>
+        <org.eventb.core.poPredicate name="GOAL_STATEX" org.eventb.core.predicate="guard∈RULE × STATE → BOOL" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#5"/>
+        <org.eventb.core.poPredicate name="GOAL_STATEY" org.eventb.core.predicate="action∈RULE × STATE → ACTION" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#6"/>
+        <org.eventb.core.poPredicate name="GOAL_STATEZ" org.eventb.core.predicate="apply∈ACTION × STATE → STATE" org.eventb.core.source="/RB-AI/RB-AI -Abstract-Context.buc|org.eventb.core.contextFile#RB-AI -Abstract-Context|org.eventb.core.axiom#7"/>
+        <org.eventb.core.poIdentifier name="isRedundant" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        <org.eventb.core.poIdentifier name="isConflict" org.eventb.core.type="ℙ(RULE×RULE×BOOL)"/>
+        <org.eventb.core.poIdentifier name="isCycle" org.eventb.core.type="ℙ(STATE×STATE×BOOL)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="axm2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Axiom" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#HYP("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀r1⦂RULE,r2⦂RULE,s⦂STATE·(r1∈RULE∧r2∈RULE∧s∈STATE⇒r1 ↦ s∈dom(guard)∧guard∈RULE × STATE ⇸ BOOL∧(guard(r1 ↦ s)=TRUE⇒r2 ↦ s∈dom(guard)∧(guard(r2 ↦ s)=TRUE⇒r1 ↦ s∈dom(action)∧action∈RULE × STATE ⇸ ACTION∧r2 ↦ s∈dom(action))))∧(r1∈RULE∧r2∈RULE∧s∈STATE∧guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧action(r1 ↦ s)≠action(r2 ↦ s)⇒r1 ↦ r2∈dom(isConflict)∧isConflict∈RULE × RULE ⇸ BOOL)" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#,"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#,"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#HYP("/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="axm4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Axiom" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#HYP*"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·(r_j∈RULE∧r_i∈RULE∧s∈STATE⇒r_j ↦ s∈dom(guard)∧guard∈RULE × STATE ⇸ BOOL∧(guard(r_j ↦ s)=TRUE⇒r_i ↦ s∈dom(guard))∧((guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)⇒r_j ↦ s∈dom(action)∧action∈RULE × STATE ⇸ ACTION∧r_i ↦ s∈dom(action)))∧(r_j∈RULE∧r_i∈RULE∧s∈STATE∧(guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)∧action(r_j ↦ s)=action(r_i ↦ s)⇒r_j ↦ r_i∈dom(isRedundant)∧isRedundant∈RULE × RULE ⇸ BOOL)" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#."/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#."/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#HYP*"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="axm6/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Axiom" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#HYP,"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀s1⦂STATE,s2⦂STATE,a⦂ACTION·(s1∈STATE∧s2∈STATE∧a∈ACTION⇒a ↦ s1∈dom(apply)∧apply∈ACTION × STATE ⇸ STATE)∧(s1∈STATE∧s2∈STATE∧a∈ACTION∧apply(a ↦ s1)=s2⇒s1 ↦ s2∈dom(isCycle)∧isCycle∈STATE × STATE ⇸ BOOL)" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#0"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#0"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#HYP,"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="axm7/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Axiom" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#HYP-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀a⦂ACTION,s⦂STATE·a∈ACTION∧s∈&#119964;⇒a ↦ s∈dom(apply)∧apply∈ACTION × STATE ⇸ STATE" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#1"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#1"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#HYP-"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="HYP(" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="isConflict∈RULE × RULE → BOOL" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#*"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYP*" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#HYP(" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="∀r1⦂RULE,r2⦂RULE,s⦂STATE·r1∈RULE∧r2∈RULE∧s∈STATE∧guard(r1 ↦ s)=TRUE∧guard(r2 ↦ s)=TRUE∧action(r1 ↦ s)≠action(r2 ↦ s)⇒isConflict(r1 ↦ r2)=TRUE" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#,"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="isRedundant∈RULE × RULE → BOOL" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#-"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYP," org.eventb.core.parentSet="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#HYP*" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="∀r_j⦂RULE,r_i⦂RULE,s⦂STATE·r_j∈RULE∧r_i∈RULE∧s∈STATE∧(guard(r_j ↦ s)=TRUE⇒guard(r_i ↦ s)=TRUE)∧action(r_j ↦ s)=action(r_i ↦ s)⇒isRedundant(r_j ↦ r_i)=TRUE" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#."/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="isCycle∈STATE × STATE → BOOL" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#\/"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYP-" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#HYP," org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="∀s1⦂STATE,s2⦂STATE,a⦂ACTION·s1∈STATE∧s2∈STATE∧a∈ACTION∧apply(a ↦ s1)=s2⇒isCycle(s1 ↦ s2)=TRUE" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#0"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/RB-AI/RB-AI-Refine-Context.bpo|org.eventb.core.poFile#RB-AI-Refine-Context|org.eventb.core.poPredicateSet#HYP-" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="∀a⦂ACTION,s⦂STATE·a∈ACTION∧s∈&#119964;⇒apply(a ↦ s)∈&#119964;" org.eventb.core.source="/RB-AI/RB-AI-Refine-Context.buc|org.eventb.core.contextFile#RB-AI-Refine-Context|org.eventb.core.axiom#1"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>
