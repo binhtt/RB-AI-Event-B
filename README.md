@@ -30,24 +30,33 @@ The repository also includes the **SmartAir** case study, a rule-based smart fan
 ## Repository Structure
 
 ```text
-models/
-├── RB-AI-Abstract-Context.buc
-├── RB-AI-Abstract-Machine.bum
-├── RB-AI-Refine-Context.buc
-├── RB-AI-Refine-Machine.bum
-├── *.bpo
-├── *.bpr
-├── *.bps
-└── *.bcm
+RB-AI - Abstract Machine.bcm
+RB-AI - Abstract Machine.bpo
+RB-AI - Abstract Machine.bpr
+RB-AI - Abstract Machine.bps
+RB-AI - Abstract Machine.bum
 
-figures/
-└── rodin_verification.png
+RB-AI -Abstract-Context.bcc
+RB-AI -Abstract-Context.bpo
+RB-AI -Abstract-Context.bpr
+RB-AI -Abstract-Context.bps
+RB-AI -Abstract-Context.buc
+
+RB-AI-Refine Machine.bcm
+RB-AI-Refine Machine.bpo
+RB-AI-Refine Machine.bpr
+RB-AI-Refine Machine.bps
+RB-AI-Refine Machine.bum
+
+RB-AI-Refine-Context.bcc
+RB-AI-Refine-Context.bpo
+RB-AI-Refine-Context.bpr
+RB-AI-Refine-Context.bps
+RB-AI-Refine-Context.buc
 
 README.md
-LICENSE
 ```
 
----
 
 ## Main Components
 
