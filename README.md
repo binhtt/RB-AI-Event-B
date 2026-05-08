@@ -39,3 +39,78 @@ models/
 ├── *.bpr
 ├── *.bps
 └── *.bcm
+Main Components
+Abstract Context
+Defines the static structure of the RB-AI system:
+states
+rules
+actions
+semantic functions
+Abstract Machine
+Models generic RB-AI execution behavior:
+rule evaluation
+action selection
+state transitions
+Refinement Context
+Introduces predicates for:
+conflict detection
+redundancy analysis
+cycle detection
+Refinement Machine
+Extends the abstract model with:
+structural verification
+semantic monitoring
+livelock detection
+recovery handling
+Requirements
+
+To reproduce the verification results, install:
+
+Rodin Platform 3.8 or later
+Java 11 or later
+
+Rodin Platform website:
+
+https://www3.hhu.de/stups/rodin.html
+
+How to Import and Verify the Models
+Open Rodin Platform
+Create a new Event-B project
+Import all .bum, .buc, .bpo, .bpr, .bps, and .bcm files
+Open the Event-B machines and contexts
+Run the automatic provers in Rodin
+
+All proof obligations (POs) included in the project were automatically discharged in Rodin 3.8.
+
+Verification Summary
+
+The Event-B models verify several important RB-AI correctness properties, including:
+
+Rule conflict detection
+Rule redundancy elimination
+Invariant preservation
+Livelock detection
+Safe-state recovery
+
+The SmartAir case study demonstrates automated verification of structural and semantic correctness properties in a reactive AI-IoT environment.
+
+Code and Artifact Availability
+
+All Event-B models and Rodin verification artifacts used in the study are publicly available in this repository for research and reproducibility purposes.
+
+Repository:
+
+https://github.com/binhtt/RB-AI-Event-B
+
+Authors
+Thanh-Binh Trinh
+Faculty of Information Systems, Phenikaa University, Vietnam
+Ninh-Thuan Truong
+VNU University of Engineering and Technology, Vietnam
+Citation
+
+If you use this repository or the associated Event-B models in your research, please cite the corresponding paper after publication.
+
+License
+
+This repository is provided for academic and research purposes.
