@@ -105,8 +105,7 @@ To reproduce the verification results, install:
 
 Rodin Platform website:
 
-https://www3.hhu.de/stups/rodin.html
-
+https://wiki.event-b.org/index.php/Rodin_Platform_Welcome_Page
 ---
 
 ## How to Import and Verify the Models
